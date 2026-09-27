@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support codex-usb-pager</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      color: #24292f;
+      background: #f6f8fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+      background: #f6f8fa;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 440px;
+      padding: 32px 28px 24px;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 26px;
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .intro {
+      color: #57606a;
+    }
+
+    .qr-wrap {
+      margin: 24px auto 14px;
+    }
+
+    .qr-code {
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      margin: 0 auto;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+    }
+
+    .qr-missing {
+      display: none;
+      padding: 32px 16px;
+      color: #57606a;
+      background: #f6f8fa;
+      border: 1px dashed #d0d7de;
+      border-radius: 8px;
+    }
+
+    .scan-label {
+      margin-top: 12px;
+      color: #1677ff;
+      font-weight: 600;
+    }
+
+    .note {
+      margin-top: 16px;
+      color: #57606a;
+      font-size: 14px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: #0969da;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 26px 20px 20px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>❤️ 支持这个项目</h1>
+    <p class="intro">如果这个项目对你有帮助，可以通过支付宝支持项目的持续开发和维护。</p>
+
+    <div class="qr-wrap">
+      <img
+        class="qr-code"
+        src="./alipay.png"
+        alt="支付宝收款二维码"
+        onerror="this.hidden=true;document.getElementById('qr-missing').style.display='block'"
+      >
+      <p id="qr-missing" class="qr-missing">支付宝收款码尚未配置</p>
+    </div>
+
+    <p class="scan-label">支付宝扫码支持</p>
+    <p class="note">你的支持将用于项目的持续开发、维护与改进。<br>感谢你的支持！</p>
+
+    <a class="back-link" href="https://github.com/2802691829/codex-usb-pager">Back to GitHub Repository</a>
+  </main>
+</body>
+</html>
