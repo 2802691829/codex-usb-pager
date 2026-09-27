@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-*/
+build/
+build-*/
+*.obj
+*.o
+*.pdb
+

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "saved_on": "2026-07-17",
+  "target": "RP2040-Zero",
+  "sdk": "Raspberry Pi Pico SDK 2.2.0 with TinyUSB",
+  "stage": {
+    "current": 1,
+    "implemented": ["USB CDC", "GP16 WS2812 status effects", "8-second offline timeout"],
+    "not_connected": ["ST7789 display", "active-low buzzer"]
+  },
+  "display": {
+    "controller": "ST7789",
+    "width": 240,
+    "height": 240,
+    "pixel_format": "RGB565",
+    "center": [120, 109],
+    "animated_region": [34, 23, 172, 172],
+    "footer_y": 196,
+    "frame_ms": 72
+  },
+  "pins": {
+    "onboard_ws2812": 16,
+    "display_pio_scl": 29,
+    "display_pio_sda": 28,
+    "display_reset": 27,
+    "display_dc": 26,
+    "display_backlight": 15,
+    "active_low_buzzer": 14
+  },
+  "timing_ms": {
+    "transition_exit": 260,
+    "transition_enter": 480,
+    "running_cycle": 4700,
+    "multi_cycle": 4600,
+    "done_pulse_period": 3000,
+    "buzzer_on": 25,
+    "buzzer_gap": 180,
+    "offline_timeout": 8000,
+    "host_heartbeat": 2000
+  },
+  "stage1_led": {
+    "max_channel": 20,
+    "idle": "low cool white",
+    "running": "blue-purple breathing",
+    "multi": "alternating blue and purple",
+    "wait": "amber double flash",
+    "done": "soft green pop every 3000 ms",
+    "error": "red triple flash",
+    "offline": "dim red slow flash"
+  },
+  "future_buzzer_pulses": {
+    "wait": 2,
+    "done": 1,
+    "error": 3
+  },
+  "usb": {
+    "transport": "CDC serial",
+    "product": "Codex Pager",
+    "rp2040_vid_pid": "2E8A:000A",
+    "stm32_vid_pid": "0483:5740"
+  },
+  "build": {
+    "board": "pico",
+    "target": "codex_pager_rp2040",
+    "uf2": "build-rp2040/codex_pager_rp2040.uf2",
+    "verified_size_bytes": 56832,
+    "windows_ascii_paths_required": true
+  },
+  "protocol": "STATE <state> RUN=<n> WAIT=<n> DONE=<n> BAL=<token> EV=<event>\\n",
+  "states": ["IDLE", "RUNNING", "MULTI", "WAIT", "DONE", "ERROR", "OFFLINE"],
+  "reference_files": [
+    "Core/Src/oled.c",
+    "Core/Src/main.c",
+    "Core/Inc/blossom_asset.h",
+    "Core/Src/blossom_asset.c",
+    "assets/openai-blossom.svg",
+    "tools/generate_blossom_asset.py",
+    "tools/pager_state.py",
+    "tools/pager_runtime.py",
+    "tools/pager_daemon.py",
+    "tools/send_pager.py"
+  ],
+  "constraints": [
+    "DONE has no check badge",
+    "Use the official packed Blossom mask",
+    "Keep the rotation center fixed",
+    "Do not block animation while buzzing",
+    "Support simultaneous Codex tasks",
+    "Keep USB CDC responsive during rendering"
+  ]
+}

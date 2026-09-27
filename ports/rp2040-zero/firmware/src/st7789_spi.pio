@@ -1,0 +1,31 @@
+.program st7789_spi
+.side_set 1
+
+.wrap_target
+pull block side 1
+set x, 7 side 1
+bitloop:
+out pins, 1 side 0
+jmp x-- bitloop side 1
+.wrap
+
+% c-sdk {
+static inline void st7789_spi_program_init(
+    PIO pio, uint sm, uint offset, uint data_pin, uint clock_pin,
+    float bit_rate) {
+    pio_sm_config config = st7789_spi_program_get_default_config(offset);
+    sm_config_set_out_pins(&config, data_pin, 1);
+    sm_config_set_sideset_pins(&config, clock_pin);
+    sm_config_set_out_shift(&config, false, false, 32);
+    sm_config_set_fifo_join(&config, PIO_FIFO_JOIN_TX);
+    sm_config_set_clkdiv(
+        &config, (float)clock_get_hz(clk_sys) / (bit_rate * 2.0f));
+
+    pio_gpio_init(pio, data_pin);
+    pio_gpio_init(pio, clock_pin);
+    pio_sm_set_consecutive_pindirs(pio, sm, data_pin, 1, true);
+    pio_sm_set_consecutive_pindirs(pio, sm, clock_pin, 1, true);
+    pio_sm_init(pio, sm, offset, &config);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}

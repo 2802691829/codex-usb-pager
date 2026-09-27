@@ -1,0 +1,22 @@
+Continue the Codex USB pager program in
+C:\Users\28026\Documents\saltyfish\codex_usb_pager.
+
+First read:
+1. docs/program_handoff_2026-08-21/PROGRAM_HANDOFF.md
+2. ports/rp2040-zero/README.md
+
+The enclosure is finished and out of scope. Preserve the current RP2040-Zero
+wiring, ST7789 visuals, exact Blossom geometry, white hexagon, weekly balance,
+multi-task animation, USB protocol, and buzzer timings.
+
+The latest host fix prevents false beeps: internal approval-review completion
+is ignored, turn_aborted becomes silent IDLE, Stop/legacy notify cannot emit
+DONE, and only semantic task_complete can produce one DONE beep after every
+running/waiting task has ended. Before changing this chain, reproduce the
+received event and run the host regression tests. Do not reflash for host-only
+changes.
+
+At the beginning, report whether USB CDC is connected, whether exactly one
+pager_daemon.py is running, and whether the runtime snapshot has any pending
+WAIT/DONE event. Then continue from the user's next request.
+

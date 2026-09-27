@@ -1,0 +1,9 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "python C:\\Users\\28026\\.codex\\hooks\\codex_pager.py RUNNING", "timeout": 5, "statusMessage": "Updating Codex pager"}]}],
+    "PermissionRequest": [{"hooks": [{"type": "command", "command": "python C:\\Users\\28026\\.codex\\hooks\\codex_pager.py ALERT", "timeout": 5, "statusMessage": "Notifying Codex pager"}]}],
+    "PreToolUse": [{"hooks": [{"type": "command", "command": "python C:\\Users\\28026\\.codex\\hooks\\codex_pager.py RUNNING", "timeout": 5, "statusMessage": "Updating Codex pager"}]}],
+    "PostToolUse": [{"hooks": [{"type": "command", "command": "python C:\\Users\\28026\\.codex\\hooks\\codex_pager.py RUNNING", "timeout": 5, "statusMessage": "Updating Codex pager"}]}],
+    "Stop": [{"hooks": [{"type": "command", "command": "python C:\\Users\\28026\\.codex\\hooks\\codex_pager.py DONE", "timeout": 5, "statusMessage": "Updating Codex pager"}]}]
+  }
+}
