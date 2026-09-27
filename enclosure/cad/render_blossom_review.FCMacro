@@ -1,0 +1,17 @@
+import os
+
+renderer_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "render_blossom_review.py",
+)
+scope = {
+    "__name__": "__main__",
+    "__file__": renderer_path,
+}
+exec(compile(
+    open(renderer_path, encoding="utf-8").read(),
+    renderer_path,
+    "exec",
+),
+    scope,
+)

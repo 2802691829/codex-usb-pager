@@ -1,0 +1,11 @@
+Outer width: 56.0 mm
+Overall thickness: 20.6 mm
+Internal envelope: 28.0 x 39.5 x 16.0 mm
+Front and rear relief: 1.5 mm; target transition radius: R0.6 mm
+Front hex point-to-point: 23.50 mm; across flats: 20.35 mm
+Raised screen face: 26.00 x 29.00 mm; pocket: 26.30 x 29.30 mm
+USB opening: 13.4 x 8.8 mm; adapter exposure: 7.0 mm
+Buzzer opening: none
+Upper latch entry angle: 35 deg; nominal centre Y: 21.60 mm
+Lower lock travel: 2.50 mm upward; detent: 0.25 mm
+Latch side clearances: upper 0.25 mm; lower guide 0.30 mm
